@@ -30,9 +30,9 @@ export default async function DishesPage() {
 
   return (
     <div className="py-10 px-2 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
-        <h1 className="text-4xl font-extrabold text-gray-800 tracking-tight">Sugerencias de Platillos</h1>
-        <Link href="/dishes/new" className="bg-green-500 text-white px-8 py-3 rounded-xl font-bold text-lg shadow hover:bg-green-600 transition focus:outline-none focus:ring-2 focus:ring-green-300" title="Agregar un nuevo platillo">+ Agregar Platillo</Link>
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4" data-testid="dishes-header">
+        <h1 className="text-4xl font-extrabold text-gray-800 tracking-tight" data-testid="dishes-header-title">Sugerencias de Platillos</h1>
+        <Link href="/dishes/new" className="bg-green-500 text-white px-8 py-3 rounded-xl font-bold text-lg shadow hover:bg-green-600 transition focus:outline-none focus:ring-2 focus:ring-green-300" title="Agregar un nuevo platillo" data-testid="dishes-header-add-button">+ Agregar Platillo</Link>
       </div>
       {dishes.length === 0 ? (
         <div className="flex justify-center items-center h-40">
