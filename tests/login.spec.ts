@@ -1,16 +1,36 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from './pages/LoginPage';
 
-test('login exitoso', async ({ page }) => {
-  await page.goto('http://localhost:3000/login');
+// Constants for URLs and credentials
+const VALID_EMAIL = 'pandarobles1@gmail.com';
+const VALID_PASSWORD = '123qwE';
+const INVALID_EMAIL = 'invalid@nutriapp.com';
+const INVALID_PASSWORD = 'wrongpassword';
 
-  // Completa los campos de login con las credenciales proporcionadas
-  await page.fill('input[name="email"]', 'test@nutriapp.com');
-  await page.fill('input[name="password"]', 'nutriapp123');
+test.describe('Login Tests', () => {
+  test('Login with valid credentials', async ({ page }) => {
+    const loginPage = new LoginPage(page);
 
+    // Navigate to login page
+    await loginPage.navigate();
 
-  // Envía el formulario usando el texto del botón
-  await page.getByRole('button', { name: 'Iniciar sesión' }).click();
+    // Perform login
+    await loginPage.login(VALID_EMAIL, VALID_PASSWORD);
 
-  // Espera a que la navegación indique login exitoso (redirige a /dishes)
-  await expect(page).toHaveURL('http://localhost:3000/dishes');
+    // Verify successful login
+    await loginPage.verifyLoginSuccess();
+  });
+
+  test('Login with invalid credentials', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+
+    // Navigate to login page
+    await loginPage.navigate();
+
+    // Perform login with invalid credentials
+    await loginPage.login(INVALID_EMAIL, INVALID_PASSWORD);
+
+    // Verify login failure
+    await loginPage.verifyLoginFailure();
+  });
 });
