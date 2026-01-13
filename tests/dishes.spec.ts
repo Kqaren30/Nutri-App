@@ -39,7 +39,7 @@ test.describe('Dishes Tests', () => {
     await dishesPage.verifyDishAdded(MOCK_DISH.name);
 
     // Verify the new dish details by viewing the dish
-    await dishesPage.viewDishDetails(MOCK_DISH.name);
+    await dishesPage.viewDishDetails();
     await dishesPage.verifyDishDetails(
       MOCK_DISH.name,
       MOCK_DISH.description,
@@ -55,9 +55,6 @@ test.describe('Dishes Tests', () => {
 
     // Navigate to dishes page
     await dishesPage.navigate();
-
-    // View details of the dish to edit
-    await dishesPage.viewDishDetails(MOCK_DISH.name);
 
     // Click the edit button
     await dishesPage.clickEditDish();
@@ -76,7 +73,7 @@ test.describe('Dishes Tests', () => {
     await dishesPage.verifyDishAdded(updatedName);
 
     // Verify the updated dish details
-    await dishesPage.viewDishDetails(updatedName);
+    await dishesPage.viewDishDetails();
     await dishesPage.verifyDishDetails(
       updatedName,
       updatedDescription,

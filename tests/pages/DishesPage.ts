@@ -35,8 +35,8 @@ export class DishesPage {
     await this.page.locator('[data-testid="dish-name"]', { hasText: name }).isHidden();
   }
 
-  async viewDishDetails(dishName: string) {
-    await this.page.locator('[data-testid="dish-name"]', { hasText: dishName }).click();
+  async viewDishDetails() {
+    await this.page.locator('[data-testid="dish-view-link"]').click();
   }
 
   async verifyDishDetails(name: string, description: string, prepTime: string, calories: string) {

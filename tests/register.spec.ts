@@ -43,3 +43,42 @@ test.describe('Register Tests', () => {
     }
   });
 });
+
+test.describe('Register UI', () => {
+  test('Register page UI elements are visible', async ({ page }) => {
+    const registerPage = new RegisterPage(page);
+    await registerPage.navigate();
+    await registerPage.expectUIElementsVisible();
+  }); });
+
+  test.describe('Register Negative Cases', () => {
+  test('Should show errors when required fields are empty', async ({ page }) => {
+    const registerPage = new RegisterPage(page);
+    await registerPage.navigate();
+    await registerPage.submitWithEmptyFields();
+    await registerPage.expectRequiredFieldErrorsVisible();
+  });
+
+  test('Should show error for invalid email format', async ({ page }) => {
+    const registerPage = new RegisterPage(page);
+    await registerPage.navigate();
+    await registerPage.register(
+      'Jane',
+      'Doe',
+      'invalid-email', // email inválido
+      'USA',
+      '1234567890',
+      'password123'
+    );
+    await registerPage.expectInvalidEmailErrorVisible();
+  });
+   
+    test('Should show error when email is already registered', async ({ page }) => {
+      const registerPage = new RegisterPage(page);
+      const email = 'lilia@gmail.com';
+      await registerPage.navigate();
+      await registerPage.register('Jane', 'Doe', email, 'USA', '1234567890', 'password123');
+      await registerPage.expectDuplicateEmailErrorVisible();
+    });
+    
+});

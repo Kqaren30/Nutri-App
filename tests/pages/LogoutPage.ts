@@ -16,6 +16,7 @@ export class LogoutPage {
 
   async verifyLogoutSuccess() {
     await this.page.waitForURL('http://localhost:3000/login');
+    await this.page.locator('[data-testid="login-welcome"]').isVisible();
   }
 
   async isLoggedIn(): Promise<boolean> {
