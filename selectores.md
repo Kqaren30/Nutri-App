@@ -131,6 +131,28 @@ Este archivo documenta los selectores de prueba (`data-testid`) añadidos a los 
 - **`edit-dish-error-message`**: Mensaje de error mostrado en caso de problemas al editar el platillo.
 - **`edit-dish-submit-button`**: Botón para enviar el formulario.
 
+# Selectores del Componente de Vista de Detalle de Platillo
+
+Estos selectores corresponden al componente de detalle de platillo (ViewDishDetail) y permiten identificar de manera única los elementos clave para pruebas automatizadas.
+
+- **`view-dish-detail-root`**: Contenedor principal de la vista de detalle del platillo.
+- **`dish-detail-card`**: Tarjeta principal que agrupa la información y la imagen del platillo.
+- **`dish-image-section`**: Sección que contiene la imagen y datos destacados del platillo.
+- **`dish-image`**: Imagen del platillo (si está disponible).
+- **`no-image`**: Contenedor mostrado cuando no hay imagen disponible para el platillo.
+- **`dish-prep-time`**: Etiqueta que muestra el tiempo de preparación o indica si es un platillo rápido.
+- **`dish-calories`**: Etiqueta que muestra las calorías del platillo (si aplica).
+- **`dish-info-section`**: Sección que contiene el nombre, descripción y pasos del platillo.
+- **`dish-name`**: Nombre del platillo.
+- **`dish-description`**: Descripción del platillo.
+- **`dish-steps`**: Contenedor de la sección de pasos de preparación.
+- **`dish-steps-title`**: Título de la sección de pasos de preparación.
+- **`dish-steps-list`**: Lista ordenada de los pasos de preparación.
+- **`dish-step-{idx}`**: Elemento de la lista para cada paso individual, donde `{idx}` es el índice del paso.
+- **`dish-step-dot-{idx}`**: Punto decorativo para cada paso individual.
+- **`dish-step-text-{idx}`**: Texto del paso individual.
+- **`dish-loading`**: Contenedor mostrado mientras se cargan los datos del platillo.
+
 ## Propósito
 
 Estos selectores permiten identificar de manera única los elementos clave de los componentes de login, registro y lista de platillos, facilitando la escritura de pruebas automatizadas confiables y mantenibles.

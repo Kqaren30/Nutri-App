@@ -8,7 +8,7 @@ const MOCK_DISH = {
   prepTime: '10',
   cookTime: '0',
   calories: '150',
-  imageUrl: 'https://example.com/fruit-salad.jpg',
+  imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80',
   step: 'Cortar todas las frutas en trozos pequeños.',
 };
 
@@ -49,6 +49,42 @@ test.describe('Dishes Tests', () => {
     await dishesPage.verifyDishSteps([MOCK_DISH.step]);
   });
 
+
+  test('Edit a dish', async ({ page }) => {
+    const dishesPage = new DishesPage(page);
+
+    // Navigate to dishes page
+    await dishesPage.navigate();
+
+    // View details of the dish to edit
+    await dishesPage.viewDishDetails(MOCK_DISH.name);
+
+    // Click the edit button
+    await dishesPage.clickEditDish();
+
+    // Edit the dish fields
+    const updatedName = 'Ensalada de Frutas Editada';
+    const updatedDescription = 'Una mezcla aún más refrescante de frutas tropicales.';
+    const updatedPrepTime = '12';
+    const updatedCalories = '180';
+    const updatedStep = 'Mezclar todas las frutas y servir frío.';
+
+    await dishesPage.editDish(updatedName, updatedDescription, updatedPrepTime, updatedCalories, updatedStep);
+    await dishesPage.submitEditDish();
+
+    // Verify the updated dish appears in the list
+    await dishesPage.verifyDishAdded(updatedName);
+
+    // Verify the updated dish details
+    await dishesPage.viewDishDetails(updatedName);
+    await dishesPage.verifyDishDetails(
+      updatedName,
+      updatedDescription,
+      `${updatedPrepTime} min`,
+      `${updatedCalories} kcal`
+    );
+    await dishesPage.verifyDishSteps([updatedStep]);
+  });
 
   test('Delete a dish', async ({ page }) => {
     const dishesPage = new DishesPage(page);

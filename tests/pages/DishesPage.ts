@@ -51,4 +51,20 @@ export class DishesPage {
       await this.page.locator(`[data-testid="dish-step-${i}"]`, { hasText: steps[i] }).isVisible();
     }
   }
+  // Métodos para editar un platillo
+  async clickEditDish() {
+    await this.page.locator('[data-testid="dish-edit-link"]').click();
+  }
+
+  async editDish(name: string, description: string, prepTime: string, calories: string, step: string) {
+    await this.page.locator('[data-testid="edit-dish-name-input"]').fill(name);
+    await this.page.locator('[data-testid="edit-dish-description-input"]').fill(description);
+    await this.page.locator('[data-testid="edit-dish-preptime-input"]').fill(prepTime);
+    await this.page.locator('[data-testid="edit-dish-calories-input"]').fill(calories);
+    await this.page.locator('[data-testid="edit-dish-step-input"]').fill(step);
+  }
+
+  async submitEditDish() {
+    await this.page.locator('[data-testid="edit-dish-submit-button"]').click();
+  }
 }

@@ -5,7 +5,7 @@ import { RegisterPage } from './pages/RegisterPage';
 const MOCK_USER = {
   firstName: 'Jane',
   lastName: 'Doe',
-  email: `jane.doe+${Math.floor(Math.random() * 100)}@example.com`,
+  email: `janee.doe+${Math.floor(Math.random() * 100)}@example.com`,
   nationality: 'USA',
   phone: '1234567890',
   password: 'password123',
