@@ -5,7 +5,7 @@ import { LoginPage } from './pages/LoginPage';
 const VALID_EMAIL = 'pandarobles1@gmail.com';
 const VALID_PASSWORD = '123qwE';
 const INVALID_EMAIL = 'invalid@nutriapp.com';
-const INVALID_PASSWORD = 'wrongpassword';
+const INVALID_PASSWORD = 'wrongpasswor';
 
 test.describe('Login Tests', () => {
   test('Login with valid credentials', async ({ page }) => {
