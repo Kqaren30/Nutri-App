@@ -15,7 +15,7 @@ const MOCK_DISH = {
 test.describe('Dishes Tests', () => {
   test.beforeEach(async ({ login }) => {
     // Use the login fixture
-    await login('pandarobles1@gmail.com', '123qwE');
+    await login('test@nutriapp.com', 'nutriapp123');
   });
 
   test('Add a new dish', async ({ page }) => {

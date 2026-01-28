@@ -3,8 +3,8 @@ import { LogoutPage } from './pages/LogoutPage';
 
 // Constants for mock data
 const MOCK_USER = {
-  email: 'pandarobles1@gmail.com',
-  password: '123qwE',
+  email: 'test@nutriapp.com',
+  password: 'nutriapp123',
 };
 
 test.describe('Logout Tests', () => {

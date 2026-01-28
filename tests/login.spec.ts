@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from './pages/LoginPage';
 
 // Constants for URLs and credentials
-const VALID_EMAIL = 'pandarobles1@gmail.com';
-const VALID_PASSWORD = '123qwE';
+const VALID_EMAIL = 'test@nutriapp.com';
+const VALID_PASSWORD = 'nutriapp123';
 const INVALID_EMAIL = 'invalid@nutriapp.com';
 const INVALID_PASSWORD = 'wrongpassword';
 
