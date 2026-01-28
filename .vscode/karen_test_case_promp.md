@@ -21,7 +21,7 @@ Automation guidelines:
 - Generate Playwright tests using `@playwright/test`.
 - Use Page Object Model (POM) with centralized selectors and actions.
 - Use the selectors already added to the application.
-- Explore and reference available selectors from the `selectors.md` file.
+- Explore and reference available selectors from the `selectores.md` file.
 - Define selectors as constants and prefer role-based locators when applicable.
 - Save tests in the `tests` directory and execute them.
 - Use custom fixtures for reusable functions.
