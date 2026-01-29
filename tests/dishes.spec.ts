@@ -63,7 +63,7 @@ test.describe('Dishes Tests', () => {
 
     // Edit the dish fields
     const updatedName = 'Platillo Editado';
-    const updatedDescription = 'Una mezcla aún más refrescante de frutas tropicales.';
+    const updatedDescription = 'Una mezcla aún más refrescante de frutas tropicales';
     const updatedPrepTime = '12';
     const updatedCalories = '180';
     const updatedStep = 'Mezclar todas las frutas y servir frío.';
