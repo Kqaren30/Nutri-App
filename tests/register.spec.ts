@@ -75,7 +75,7 @@ test.describe('Register UI', () => {
    
     test('Should show error when email is already registered', async ({ page }) => {
       const registerPage = new RegisterPage(page);
-      const email = 'lilia@gmail.com';
+      const email = 'test@nutriapp.com';
       await registerPage.navigate();
       await registerPage.register('Jane', 'Doe', email, 'USA', '1234567890', 'password123');
       await registerPage.expectDuplicateEmailErrorVisible();
