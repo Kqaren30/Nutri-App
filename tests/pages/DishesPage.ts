@@ -39,6 +39,15 @@ export class DishesPage {
     await this.page.locator('[data-testid="dish-view-link"]').click();
   }
 
+    async viewDishByNameDetails(name: string) {
+    await this.page
+    .getByAltText(name)
+    .locator('..')   // dish-image-container
+    .locator('..')   // tarjeta completa
+    .getByRole('link', { name: 'Ver' })
+    .click();
+  }
+
   async verifyDishDetails(name: string, description: string, prepTime: string, calories: string) {
     await this.page.locator('[data-testid="dish-name"]', { hasText: name }).isVisible();
     await this.page.locator('[data-testid="dish-description"]', { hasText: description }).isVisible();
@@ -52,8 +61,8 @@ export class DishesPage {
     }
   }
   // Métodos para editar un platillo
-  async clickEditDish() {
-    await this.page.locator('[data-testid="dish-edit-link"]').click();
+  async clickEditLastDish() {
+    await this.page.locator('[data-testid="dish-edit-link"]').last().click();
   }
 
   async editDish(name: string, description: string, prepTime: string, calories: string, step: string) {
@@ -61,6 +70,10 @@ export class DishesPage {
     await this.page.locator('[data-testid="edit-dish-description-input"]').fill(description);
     await this.page.locator('[data-testid="edit-dish-preptime-input"]').fill(prepTime);
     await this.page.locator('[data-testid="edit-dish-calories-input"]').fill(calories);
+    const arraySteps = this.page.locator('[data-testid="edit-dish-step-remove-button"]');
+    const stepCount = await arraySteps.count()-1;
+    for (let index= 0; index < stepCount ; index++) {
+    await arraySteps.nth(index).click();}
     await this.page.locator('[data-testid="edit-dish-step-input"]').fill(step);
   }
 

@@ -39,7 +39,9 @@ test.describe('Dishes Tests', () => {
     await dishesPage.verifyDishAdded(MOCK_DISH.name);
 
     // Verify the new dish details by viewing the dish
-    await dishesPage.viewDishDetails();
+     await dishesPage.viewDishByNameDetails(MOCK_DISH.name);
+
+
     await dishesPage.verifyDishDetails(
       MOCK_DISH.name,
       MOCK_DISH.description,
@@ -57,10 +59,10 @@ test.describe('Dishes Tests', () => {
     await dishesPage.navigate();
 
     // Click the edit button
-    await dishesPage.clickEditDish();
+    await dishesPage.clickEditLastDish();
 
     // Edit the dish fields
-    const updatedName = 'Ensalada de Frutas Editada';
+    const updatedName = 'Platillo Editado';
     const updatedDescription = 'Una mezcla aún más refrescante de frutas tropicales.';
     const updatedPrepTime = '12';
     const updatedCalories = '180';
@@ -73,7 +75,7 @@ test.describe('Dishes Tests', () => {
     await dishesPage.verifyDishAdded(updatedName);
 
     // Verify the updated dish details
-    await dishesPage.viewDishDetails();
+    await dishesPage.viewDishByNameDetails(updatedName);
     await dishesPage.verifyDishDetails(
       updatedName,
       updatedDescription,
